@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="product in products" track-by="id">
+      <tr v-for="product in products" track-by="id" v-on:click.prevent="onEdit(product)">
         <td>{{product.name}}</td>
         <td>{{product.description}}</td>
         <td>{{product.price}}:-</td>
@@ -20,10 +20,10 @@
 <script>
 export default {
   props: ['products'],
-  data () {
-    return {
-      
-    }
-  }
+ methods: {
+   onEdit(product) {
+     this.$emit('edit', product)
+   }
+ }
 }
 </script>

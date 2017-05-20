@@ -16,7 +16,8 @@
       <div v-if="formErrors.price" class="form-control-feedback">{{formErrors.price}}</div>
     </div>
     <button type="submit" v-on:click.prevent="onSubmit" class="btn btn-primary" >
-    Save Product</button>
+    {{ product.id ? 'Update' : 'Add' }} Product</button>
+    <button type="submit" v-if="product.id" class="btn btn-secondary" v-on:click.prevent="onCancel">Cancel</button>
   </form>
 </template>
 
