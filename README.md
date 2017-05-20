@@ -2,7 +2,7 @@
 
 src : [link source](https://jayway.github.io/vue-js-workshop/docs)
 
-# Chap 1. Create you first Vue.js project
+## Chap 1. Create you first Vue.js project
 
 ```html
 <!DOCTYPE html>
@@ -28,4 +28,14 @@ src : [link source](https://jayway.github.io/vue-js-workshop/docs)
       </div>
   </body>
 </html>
+```
+
+## Chap 2 Using vue-cli for quick project scaffolding
+
+```sh
+$ npm install -g vue-cli
+```
+create vue project
+```sh
+$ vue init <template> <name>
 ```
