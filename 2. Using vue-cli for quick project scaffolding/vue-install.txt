@@ -1,0 +1,7 @@
+```sh
+$ npm install -g vue-cli
+```
+create vue project
+```sh
+$ vue init <template> <name>
+```

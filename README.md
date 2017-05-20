@@ -39,3 +39,11 @@ create vue project
 ```sh
 $ vue init <template> <name>
 ```
+
+## Chap 3 List products
+
+> create the ProductList component
+
+```sh
+$ touch src/component/ProductList.vue
+```
