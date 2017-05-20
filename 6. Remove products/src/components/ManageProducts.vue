@@ -2,10 +2,12 @@
   <section>
     <save-product-form :product="productInForm"
     v-on:submit="onFormSave"
-    v-on:cancel="resetProductInForm">
+    v-on:cancel="resetProductInForm"
+    >
     </save-product-form>
     <product-list :products="products"
     v-on:edit="onEditClicked"
+    v-on:remove="onRemoveClicked"
     ></product-list>
   </section>
 </template>
@@ -77,6 +79,15 @@ export default {
     },
     onEditClicked(product) {
       this.productInForm = { ...product };
+    },
+    onRemoveClicked(product) {
+      const index = this.products.findIndex((p) => p.id === product.id);
+
+      this.products.splice(index,1);
+
+      if(product.id === this.productInForm.id){
+        this.resetProductInForm();
+      }
     }
   }
 }
