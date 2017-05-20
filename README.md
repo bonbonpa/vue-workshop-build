@@ -158,7 +158,7 @@ export default {
 </script>
 ```
 
-## Chap 4 List ProductList
+## Chap 4 Add Products
 
 > create SaveProductForm.vue
 
@@ -201,5 +201,56 @@ export default {
 > go update ManageProducts.vue
 
 ```html
+<template>
+  <section>
+    <save-product-form :product="productInForm"
+    v-on:submit="onFormSave">
+    </save-product-form>
+    <product-list></product-list>
+  </section>
+</template>
 
+<script>
+import ProductList from './ProductList';
+import SaveProductForm from './SaveProductForm'
+
+const initialData = () => {
+  return {
+    productInForm: {
+      id: null,
+      name: '',
+      description: '',
+      price: null
+    }
+  }
+}
+
+export default {
+  components: {
+    ProductList,
+    SaveProductForm
+  },
+  data: initialData,
+  methods: {
+    onFormSave(productData) {
+      console.log('productData', JSON.stringify(productData));
+    }
+  }
+}
+</script>
 ```
+
+> ProductList.vue
+
+```html
+<template>
+  ...
+</template>
+
+<script>
+export default {
+  props: ['products']
+}
+</script>
+```
+
