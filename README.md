@@ -640,4 +640,114 @@ export default {
 </script>
 ```
 
+## Chap 7 Routing with vue-router
 
+> install vou-router
+
+```sh
+$ npm install --save vue-router
+```
+> create AppNav.vue
+
+```html
+<template>
+    <nav class="navbar navbar-full navbar-light navbar-jw">
+        <a class="navbar-brand" href="#" >
+            <img src="../assets/jay.svg" alt="Jayway logo" />bonbonpa
+        </a>
+        <div class="nav navbar-nav">
+            <router-link 
+            to="home" 
+            class="nav-item nav-link" 
+            active-class="active" 
+            exact>
+                Home
+            </router-link>
+            <router-link 
+            to="manage-products" 
+            class="nav-item nav-link" 
+            active-class="active" 
+            exact>
+                Manage Products
+            </router-link>
+        </div>
+    </nav>
+</template>
+
+<script>
+    export default {
+
+    }
+</script>
+```
+
+> Create ProductCatalog.vue
+
+```html
+<template>
+    <p>I'm a product catalog!</p>
+</template>
+
+<script>
+    export default{
+        
+    }
+</script>
+```
+
+> edit App.vue
+
+```html
+<template>
+  <div>
+    <header class="app-header">
+      <app-nav></app-nav>
+    </header>
+    <main class="container">
+      <router-view></router-view>
+    </main>
+  </div>
+</template>
+
+<script>
+import AppNav from './components/AppNav'
+
+export default {
+  components: {
+    AppNav
+  }
+}
+</script>
+
+```
+
+> edit main.js
+
+```js
+import Vue from 'vue'
+import App from './App'
+import VueRouter from 'vue-router'
+
+import ProductCatalog from './components/ProductCatalog'
+import ManageProducts from './components/ManageProducts'
+
+
+import './styles/style.scss'
+
+Vue.use(VueRouter)
+
+const routes = [
+    { path: '/home', alias: '/', component: ProductCatalog },
+    { path: '/manage-products', component: ManageProducts }
+]
+
+const router = new VueRouter({
+    routes
+})
+
+new Vue({
+    el: '#app',
+    router,
+    render: h => h(App)
+})
+```
